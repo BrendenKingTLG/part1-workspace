@@ -8,6 +8,10 @@ public class TelevisionClient {
       tv1.brand = "Samsung";
       tv1.volume = 10;
 
+      //check methods
+      tv1.turnOn();
+      tv1.turnOff();
+
       //create second instance
       Television tv2 = new Television();
 
@@ -15,17 +19,9 @@ public class TelevisionClient {
       tv2.brand = "LG";
       tv2.volume = 8;
 
-      System.out.println();
-      tv1.turnOn();
-      tv1.isTeleOn();
-      tv1.turnOff();
-      tv1.isTeleOn();
-
-      tv2.isTeleOn();
+      //check methods
       tv2.turnOn();
-      tv2.isTeleOn();
       tv2.turnOff();
-      tv2.isTeleOn();
 
   }
 }

@@ -16,14 +16,6 @@ public class Television {
     on = false;
   }
 
-  String isTeleOn(){
-    if(this.on) {
-      String onStatement = "this " + brand + " tv is on";
-      return onStatement;
-    } else {
-      String offStatement = "this " + brand + " tv is off";
-      return offStatement;
-    }
   }
 
 }
