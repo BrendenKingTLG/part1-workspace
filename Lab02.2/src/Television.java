@@ -66,7 +66,7 @@ public class Television {
 
   public void setVolume(int volume) {
     if (volume < MIN_VOLUME || volume > MAX_VOLUME) {
-      System.out.printf("%d is invalid, volume must be between %d and %d (inclusive). %n  ", volume, MAX_VOLUME, MIN_VOLUME);
+      System.out.printf("%d is invalid, volume must be between %d and %d (inclusive). %n", volume, MAX_VOLUME, MIN_VOLUME);
     } else {
       this.volume = volume;
     }
