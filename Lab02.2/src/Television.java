@@ -5,9 +5,8 @@ public class Television {
   public static final int MIN_VOLUME = 0, MAX_VOLUME = 100;
   private static int INSTANCE_COUNT = 0;
   private String brand;
-  private int volume;
-
-
+  private int volume, oldVolume;
+  private boolean isMuted;
 
   //constructor
   public Television() {
@@ -24,10 +23,20 @@ public class Television {
     this.setVolume(volume);
   }
 
-
   //business methods
+  public void mute(){
+    if(!this.isMuted()){
+      oldVolume = this.volume;
+      this.setVolume(0);
+      isMuted = true;
+    } else {
+      this.setVolume(oldVolume);
+      this.setMuted(false);
+    }
+  }
+
   void turnOn() {
-    boolean isConnected = verifyInternetConnection();
+    //boolean isConnected = verifyInternetConnection();
     System.out.println("turning on " + getBrand() + " tv " + "at volume " + getVolume());
 
   }
@@ -37,17 +46,25 @@ public class Television {
 
   }
 
-  private boolean verifyInternetConnection() {
-    return true;
-  }
+  //private boolean verifyInternetConnection() {
+  // return true;
+  // }
 
   @Override
   public String toString() {
-    return "Television " + "brand " + getBrand() + " , " + "volume " + getVolume();
+    return "Television " + "brand " + getBrand() + " , " + "volume " + getVolume() + " is mute: " + isMuted();
   }
 
 
   //getters & setters
+  public boolean isMuted() {
+    return isMuted;
+  }
+
+  public void setMuted(final boolean muted) {
+    isMuted = muted;
+  }
+
   public static int getInstanceCount() {
     return INSTANCE_COUNT;
   }
@@ -57,7 +74,17 @@ public class Television {
   }
 
   public void setBrand(String brand) {
-    this.brand = brand;
+    switch(brand) {
+      case "lg":
+        this.brand = brand;
+        break;
+      case "samsung":
+        this.brand = brand;
+        break;
+      default:
+        System.out.printf("%s is invalid, please enter one of the following: samsung or lg %n", brand);
+        break;
+    }
   }
 
   public int getVolume() {
