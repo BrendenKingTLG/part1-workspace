@@ -5,6 +5,7 @@ public class TelevisionValidationTest {
     Television tvTesterBrand = new Television();
     Television tvTesterVolume = new Television("lg");
     Television tvTesterMute = new Television("samsung");
+    Television tvTesterDis = new Television("lg", 40);
 
     //test brand
     tvTesterBrand.setBrand("lenovo");
@@ -26,6 +27,12 @@ public class TelevisionValidationTest {
     System.out.println(tvTesterMute);
     tvTesterMute.mute();
     System.out.println(tvTesterMute);
+    System.out.println();
+
+    //test display
+    System.out.println(tvTesterDis);
+    tvTesterDis.setDisplay(DisplayType.CRT);
+    System.out.println(tvTesterDis);
 
   }
 

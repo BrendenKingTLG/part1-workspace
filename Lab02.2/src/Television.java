@@ -7,6 +7,7 @@ public class Television {
   private String brand;
   private int volume, oldVolume;
   private boolean isMuted;
+  private DisplayType display = DisplayType.LED;
 
   //constructor
   public Television() {
@@ -23,6 +24,12 @@ public class Television {
     this.setVolume(volume);
   }
 
+  public Television(String brand, int volume, DisplayType display) {
+    this(brand);
+    this.setVolume(volume);
+    this.setDisplay(display);
+  }
+
   //business methods
   public void mute(){
     if(!this.isMuted()){
@@ -36,7 +43,6 @@ public class Television {
   }
 
   void turnOn() {
-    //boolean isConnected = verifyInternetConnection();
     System.out.println("turning on " + getBrand() + " tv " + "at volume " + getVolume());
 
   }
@@ -46,17 +52,19 @@ public class Television {
 
   }
 
-  //private boolean verifyInternetConnection() {
-  // return true;
-  // }
-
   @Override
   public String toString() {
-    return "Television " + "brand " + getBrand() + " , " + "volume " + getVolume() + " is mute: " + isMuted();
+    return "Television " + "brand " + getBrand() + ", " + "volume " + getVolume() + " is mute: " + isMuted() + " display type " + getDisplay();
   }
 
-
   //getters & setters
+  public DisplayType getDisplay() {
+    return display;
+  }
+
+  public void setDisplay(final DisplayType display) {
+    this.display = display;
+  }
   public boolean isMuted() {
     return isMuted;
   }
