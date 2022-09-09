@@ -8,6 +8,7 @@ public class Television {
   private int volume, oldVolume;
   private boolean isMuted;
   private DisplayType display = DisplayType.LED;
+  public static final String[] VALID_BRANDS = {"LG", "Samsung"};
 
   //constructor
   public Television() {
@@ -82,7 +83,7 @@ public class Television {
   }
 
   public void setBrand(String brand) {
-    switch(brand) {
+   /* switch(brand) {
       case "lg":
         this.brand = brand;
         break;
@@ -92,8 +93,15 @@ public class Television {
       default:
         System.out.printf("%s is invalid, please enter one of the following: samsung or lg %n", brand);
         break;
+        */
+    for(String s: VALID_BRANDS){
+      if(brand.equals(s)){
+        this.brand = s;
+      } else {
+        System.out.printf("%s is invalid, please enter one of the following: samsung or lg %n", brand);
+      }
     }
-  }
+    }
 
   public int getVolume() {
     return volume;

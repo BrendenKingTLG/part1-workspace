@@ -3,13 +3,13 @@ public class TelevisionValidationTest {
   public static void main(String[] args) {
     //create instances
     Television tvTesterBrand = new Television();
-    Television tvTesterVolume = new Television("lg");
-    Television tvTesterMute = new Television("samsung");
-    Television tvTesterDis = new Television("lg", 40);
+    Television tvTesterVolume = new Television("LG");
+    Television tvTesterMute = new Television("Samsung");
+    Television tvTesterDis = new Television("LG", 40);
 
     //test brand
     tvTesterBrand.setBrand("lenovo");
-    tvTesterBrand.setBrand("samsung");
+    tvTesterBrand.setBrand("Samsung");
     System.out.println(tvTesterBrand);
     System.out.println();
 
