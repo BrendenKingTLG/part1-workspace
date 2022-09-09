@@ -1,3 +1,7 @@
+package com.entertainment.client;
+
+import com.entertainment.Television;
+
 public class TelevisionClient {
 
   public static void main(String[] args) {

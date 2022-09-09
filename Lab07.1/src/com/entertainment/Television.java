@@ -1,3 +1,4 @@
+package com.entertainment;
 
 public class Television {
 
@@ -43,12 +44,12 @@ public class Television {
     }
   }
 
-  void turnOn() {
+  public void turnOn() {
     System.out.println("turning on " + getBrand() + " tv " + "at volume " + getVolume());
 
   }
 
-  void turnOff() {
+  public void turnOff() {
     System.out.println("turning off " + getBrand() + " tv " + "at volume " + getVolume());
 
   }

@@ -1,4 +1,4 @@
-/*
+package com.entertainment.client;/*
  * This code is sample code, provided as-is, and we make no
  * warranties as to its correctness or suitability for any purpose.
  *
@@ -6,6 +6,9 @@
  * Copyright LearningPatterns Inc.
  */
 
+
+import com.entertainment.DisplayType;
+import com.entertainment.Television;
 
 /**
  * Intended usage (by human):
