@@ -32,6 +32,7 @@ public class Television {
     private String brand;
     private int volume;
     private DisplayType display = DisplayType.LED;
+    private final Tuner tuner = new Tuner();
 
     // CONSTRUCTORS - special methods that get called when the client says "new"
     public Television() {
@@ -57,6 +58,12 @@ public class Television {
     public void turnOn() {
         boolean isConnected = verifyInternetConnection();
         System.out.println("Turning on your " + brand + " television to volume " + volume);
+    }
+    public void changeChannel(String channel) {
+        tuner.setChannel(channel);
+    }
+    public String getCurrentChannel() {
+        return tuner.getChannel();
     }
 
     public void turnOff() {
