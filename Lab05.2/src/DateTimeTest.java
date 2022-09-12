@@ -12,8 +12,10 @@
  * For the purposes of this lab, we give you a few wildcarded imports,
  * so you can use the classes in these packages without having to worry about importing them.
  */
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.*;
+import java.util.Date;
 
 class DateTimeTest {
 
@@ -22,9 +24,9 @@ class DateTimeTest {
      * To run one test method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-        // testNow();
-        // testCreate();
-        // testParse();
+        testNow();
+        testCreate();
+        testParse();
         // testFormat();
     }
 
@@ -33,6 +35,7 @@ class DateTimeTest {
      */
     public static void testNow() {
         // TODO
+        System.out.println(LocalDateTime.now());
     }
 
     /**
@@ -40,9 +43,15 @@ class DateTimeTest {
      */
     public static void testCreate() {
         // TODO: create your birthday via of(). What day of the week were you born on?
+        LocalDate birthday = LocalDate.of(1998, 7,13);
+        System.out.println(birthday);
+        System.out.println(birthday.getDayOfWeek());
+
 
         // TODO: use of() to create a value representing the 1st lunar landing - it happened on 7/20/69 at 3:18pm Eastern Time.
         // NOTE: ignore time-zone, just assume Eastern Time is the local time.
+        LocalDateTime firstLunarLanding = LocalDateTime.of(1969, 7, 20, 3, 18);
+        System.out.println(firstLunarLanding);
     }
 
     /**
@@ -50,8 +59,14 @@ class DateTimeTest {
      */
     public static void testParse() {
         // TODO: create your birthday by parsing a text representation in standard format ("yyyy-MM-dd").
+        LocalDate birthday = LocalDate.parse("1998-07-13");
+        System.out.println(birthday);
 
         // OPTIONAL: now create it by parsing text in the form "2/6/2014" (this is Feb 6, not Jun 2).
+        //LocalDate birthday = LocalDate.of(1998, 7, 13);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+        birthday = LocalDate.parse("07/13/1998", formatter);
+        System.out.println(birthday);
     }
 
     /**
@@ -64,6 +79,5 @@ class DateTimeTest {
 
         // TODO: 14-10-1066
 
-        // OPTIONAL: October 14, 1066
     }
 }
