@@ -10,6 +10,9 @@ package com.hr.personnel.client;
 
 import com.hr.personnel.Department;
 import com.hr.personnel.Employee;
+import com.hr.personnel.HourlyEmployee;
+import com.hr.personnel.SalariedEmployee;
+
 import java.time.LocalDate;
 
 /**
@@ -25,6 +28,11 @@ class HRClient {
         // add Employees to it
         dept.addEmployee(new Employee("Jason", LocalDate.of(1990, 8, 24)));
         dept.addEmployee(new Employee("Julie", LocalDate.of(2000, 2, 2)));
+
+        //create one sal and one hour employee, pass to addEmployee()
+        dept.addEmployee((new SalariedEmployee("David", LocalDate.of(2020, 4, 4), 105000.54)));
+        dept.addEmployee((new HourlyEmployee("John", LocalDate.of(2010, 6, 4), 53.5, 40)));
+
 
         // list its Employees
         System.out.println("\nList employees:");
