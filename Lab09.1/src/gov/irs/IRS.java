@@ -23,9 +23,9 @@ public class IRS {
     public void collectTaxes() {
         for (int i = 0; i < currentIndex; i++) {
             double deduction = payers[i].getStandardDeduction();
-            System.out.println();
             System.out.printf("Tax payers deduction is: %,.2f%n", deduction);
             payers[i].payTaxes();
+            System.out.println();
         }
     }
 
