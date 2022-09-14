@@ -1,12 +1,21 @@
+/*
+        * This code is sample code, provided as-is, and we make no
+        * warranties as to its correctness or suitability for any purpose.
+        *
+        * We hope that it's useful to you.  Enjoy.
+        * Copyright LearningPatterns Inc.
+        */
+
 package com.hr.personnel;
 
 import java.time.LocalDate;
 
 public class HourlyEmployee extends Employee {
-
+    //fields
     private double rate;
     private double hours;
 
+    //ctor
     public HourlyEmployee() {
     }
 
@@ -15,13 +24,23 @@ public class HourlyEmployee extends Employee {
         super(name, hireDate);
     }
 
-    //implement constructor that takes salary
-
     public HourlyEmployee(String name, LocalDate hireDate, double rate, double hours) {
         this(name, hireDate);
         setHours(hours);
         setRate(rate);
 
+    }
+
+    //b methods
+    @Override
+    public void pay() {
+        super.pay();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s, Rate=%s, Hours=%s", super.toString(), getRate(), getHours());
+        //"Employee: " + "name=" + getName() + ", hireDate=" + getHireDate() + ", Rate=" + getRate() + ", Hours=" + getHours();
     }
 
     //generate setters and getters
@@ -43,11 +62,4 @@ public class HourlyEmployee extends Employee {
     }
 
 
-
-    //override toString()
-    @Override
-    public String toString() {
-        return String.format("%s, Rate=%s, Hours=%s", super.toString(), getRate(), getHours());
-        //"Employee: " + "name=" + getName() + ", hireDate=" + getHireDate() + ", Rate=" + getRate() + ", Hours=" + getHours();
-    }
 }

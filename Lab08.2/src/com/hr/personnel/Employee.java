@@ -1,10 +1,3 @@
-/*
- * This code is sample code, provided as-is, and we make no
- * warranties as to its correctness or suitability for any purpose.
- *
- * We hope that it's useful to you.  Enjoy.
- * Copyright LearningPatterns Inc.
- */
 
 package com.hr.personnel;
 
@@ -63,7 +56,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("%s: name=%s, hireDate=%s", getClass().getSimpleName(), getName(), getHireDate());
+        return String.format("%s: name=%s, hireDate=%s", getClass().getName(), getName(), getHireDate());
         //"Employee: name=" + getName() + ", hireDate=" + getHireDate();
     }
 }
