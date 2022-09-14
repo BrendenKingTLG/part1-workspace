@@ -15,9 +15,6 @@ public class SalariedEmployee extends Employee {
     private double salary;
 
     //ctor
-    public SalariedEmployee() {
-    }
-
     public SalariedEmployee(String name, LocalDate hireDate) {
         super(name, hireDate);
     }
@@ -30,13 +27,12 @@ public class SalariedEmployee extends Employee {
     //B methods
     @Override
     public void pay() {
-        super.pay();
+        System.out.printf("%s is paid a salary of %,.2f%n", getName(), getSalary());
     }
 
     @Override
     public String toString() {
         return String.format("%s, Salary=%,.2f", super.toString(), getSalary());
-        //"Employee: " + "name=" + getName() + ", hireDate=" + getHireDate() + ", Salary=" + getSalary();
     }
 
     //get & set
