@@ -8,6 +8,8 @@
 
 package com.hr.personnel;
 
+import gov.irs.IllegalWageException;
+
 import java.time.LocalDate;
 
 public class HourlyEmployee extends Employee {
@@ -21,7 +23,7 @@ public class HourlyEmployee extends Employee {
         super(name, hireDate);  // delegate to superclass ctor for name, hireDate
     }
 
-    public HourlyEmployee (String name, LocalDate hireDate, double rate, double hours) throws IllegalArgumentException {
+    public HourlyEmployee (String name, LocalDate hireDate, double rate, double hours) throws IllegalWageException {
         this(name, hireDate);   // delegate to neighboring ctor for name, hireDate
         setRate(rate);          // handle rate here, by delegating to setter
         setHours(hours);        // handle hours here, by delegating to setter
@@ -44,9 +46,9 @@ public class HourlyEmployee extends Employee {
         return rate;
     }
 
-    public void setRate(double rate) throws IllegalArgumentException{
+    public void setRate(double rate) throws IllegalWageException{
         if (rate < FEDERAL_MINIMUM_WAGE){
-            throw new IllegalArgumentException(String.format("%,.2f is illegal, rate cannot be less than %,.2f%n",rate, FEDERAL_MINIMUM_WAGE));
+            throw new IllegalWageException(String.format("%,.2f is illegal, rate cannot be less than %,.2f%n",rate, FEDERAL_MINIMUM_WAGE));
         } else {
             this.rate = rate;
         }
