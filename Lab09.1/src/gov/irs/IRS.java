@@ -8,11 +8,10 @@
  
 package gov.irs;
 
-import com.hr.personnel.Employee;
 
 /**
  * The IRS maintains a collection of TaxPayers and collects taxes from them.
- *
+ *------------------------------------------------------------------
  * Note the interface type TaxPayer, used throughout the class.
  */
 public class IRS {
