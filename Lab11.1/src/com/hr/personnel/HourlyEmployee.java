@@ -1,0 +1,65 @@
+/*
+        * This code is sample code, provided as-is, and we make no
+        * warranties as to its correctness or suitability for any purpose.
+        *
+        * We hope that it's useful to you.  Enjoy.
+        * Copyright LearningPatterns Inc.
+        */
+
+package com.hr.personnel;
+
+
+import java.time.LocalDate;
+
+public class HourlyEmployee extends Employee {
+    //fields
+    private double rate;
+    private double hours;
+
+    //ctor
+    public HourlyEmployee(String name, LocalDate hireDate) {
+        super(name, hireDate);
+    }
+
+    public HourlyEmployee(String name, LocalDate hireDate, double rate, double hours) {
+        this(name, hireDate);
+        setHours(hours);
+        setRate(rate);
+    }
+
+    //b methods
+    @Override
+    public void pay() {
+        System.out.printf("%s is paid hourly, for a total of %,.2f%n", getName(), getHours()*getRate());
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s, Rate=%s, Hours=%s", super.toString(), getRate(), getHours());
+    }
+
+    @Override
+    public void payTaxes() {
+        System.out.printf("%s paid taxes of %,.2f%n", getName(), rate*hours*HOURLY_TAX_RATE);
+    }
+
+    //generate setters and getters
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
+
+    public double getHours() {
+        return hours;
+    }
+
+    public void setHours(double hours) {
+        this.hours = hours;
+    }
+
+
+}
