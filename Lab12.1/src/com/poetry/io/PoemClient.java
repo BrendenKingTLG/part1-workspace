@@ -8,8 +8,7 @@
 
 package com.poetry.io;
 
-import java.io.BufferedReader;
-import java.io.IOException;
+import java.io.*;
 
 public class PoemClient {
 
@@ -17,8 +16,8 @@ public class PoemClient {
      * To run one method at a time, uncomment the call to the one you want to execute.
      */
     public static void main(String[] args) {
-        // readPoem();
-        // writePoem();
+        readPoem();
+        //writePoem();
     }
 
     /**
@@ -35,8 +34,10 @@ public class PoemClient {
      */
     private static void readPoem() {
         // TODO: initialize 'reader' variable and complete the try block
-        try (BufferedReader reader = null) {
-
+        try (BufferedReader reader = new BufferedReader(new FileReader("haiku.txt"))) {
+            for(String line = reader.readLine(); line != null; line = reader.readLine()) {
+                System.out.println(line);
+            }
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -56,5 +57,12 @@ public class PoemClient {
      */
     private static void writePoem() {
         // TODO
+        try (PrintWriter writer = new PrintWriter(new FileWriter("haiku.txt"))) {
+            writer.println("An old silent pond");
+            writer.println("A frog jumps into the pond");
+            writer.println("Splash! Silence again.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
