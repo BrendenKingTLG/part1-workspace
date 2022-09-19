@@ -8,6 +8,12 @@
 
 package com.data.io;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class PersonDataClient {
 
     /**
@@ -30,18 +36,26 @@ public class PersonDataClient {
      */
     private static void writeData() {
         // TODO
-    }
+        try(DataOutputStream out = new DataOutputStream(new FileOutputStream("person.dat"))) {
+            out.writeUTF("Brenden");
+            out.writeInt(24);
+            out.writeDouble(13.5);
+            out.writeBoolean(true);
 
-    /**
-     * TASK: read the data written to 'person.dat' back in to the appropriate Java datatypes.
-     * 
-     * You need to read it in the same sequence as it was written.
-     * Then print to stdout to see it.
-     * 
-     * Use a DataInputStream wrapped around a FileInputStream.
-     * Use a try-with-resources to initialize the stream and auto-close it.
-     */
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     private static void readData() {
         // TODO
+        try(DataInputStream in = new DataInputStream(new FileInputStream("person.dat"))) {
+            String name = in.readUTF();
+            int age = in.readInt();
+            double shoeSize = in.readDouble();
+            boolean isMarried = in.readBoolean();
+            System.out.printf("name:%s, age:%d, shoe-size:%,.2f, married:%s ", name, age, shoeSize, isMarried);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
